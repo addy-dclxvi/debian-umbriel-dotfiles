@@ -10,7 +10,6 @@ Because Noctalia handles things like password prompts (Polkit), screenshots, and
 I didn't need to install a bunch of extra background apps to get a working desktop.
 
 ## Preview
-## Preview
 ![1](Pictures/Preview/clean.png)
 ![2](Pictures/Preview/cmus.png)
 ![3](Pictures/Preview/nvim.png)
