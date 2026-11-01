@@ -10,16 +10,17 @@ Because Noctalia handles things like password prompts (Polkit), screenshots, and
 I didn't need to install a bunch of extra background apps to get a working desktop.
 
 ## Preview
-![1](https://github.com/addy-dclxvi/debian-umbriel-dotfiles/blob/master/Pictures/Preview/clean.png)
-![2](https://github.com/addy-dclxvi/debian-umbriel-dotfiles/blob/master/Pictures/Preview/cmus.png)
-![3](https://github.com/addy-dclxvi/debian-umbriel-dotfiles/blob/master/Pictures/Preview/nvim.png)
-![4](https://github.com/addy-dclxvi/debian-umbriel-dotfiles/blob/master/Pictures/Preview/lf.png)
-![5](https://github.com/addy-dclxvi/debian-umbriel-dotfiles/blob/master/Pictures/Preview/gimp.png)
-![6](https://github.com/addy-dclxvi/debian-umbriel-dotfiles/blob/master/Pictures/Preview/nautilus.png)
-![7](https://github.com/addy-dclxvi/debian-umbriel-dotfiles/blob/master/Pictures/Preview/startpage.png)
-![8](https://github.com/addy-dclxvi/debian-umbriel-dotfiles/blob/master/Pictures/Preview/nvim2.png)
-![9](https://github.com/addy-dclxvi/debian-umbriel-dotfiles/blob/master/Pictures/Preview/lf2.png)
-![10](https://github.com/addy-dclxvi/debian-umbriel-dotfiles/blob/master/Pictures/Preview/mpv.png)
+## Preview
+![1](Pictures/Preview/clean.png)
+![2](Pictures/Preview/cmus.png)
+![3](Pictures/Preview/nvim.png)
+![4](Pictures/Preview/lf.png)
+![5](Pictures/Preview/gimp.png)
+![6](Pictures/Preview/nautilus.png)
+![7](Pictures/Preview/startpage.png)
+![8](Pictures/Preview/nvim2.png)
+![9](Pictures/Preview/lf2.png)
+![10](Pictures/Preview/mpv.png)
 
 ## 🌱 How It Started (The Base Install)
 
