@@ -1,0 +1,42 @@
+#!/bin/sh
+# Completely block Kitty from spawning fallback pagers on corrupted images
+export PAGER=true
+export BAT_PAGER=true
+export LESS=""
+
+file="$1"
+w="$2"
+h="$3"
+x="$4"
+y="$5"
+
+is_image=0
+case "$file" in
+	*.png|*.jpg|*.jpeg|*.gif|*.webp|*.bmp|*.PNG|*.JPG|*.JPEG) is_image=1 ;;
+esac
+
+if [ "$is_image" -eq 0 ]; then
+	mime=$(file -b --mime-type "$file" 2>/dev/null)
+	case "$mime" in
+		image/*) is_image=1 ;;
+	esac
+fi
+
+if [ "$is_image" -eq 1 ]; then
+	kitty +kitten icat --silent --stdin no --transfer-mode file \
+		--place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty 2>/dev/null
+			exit 1
+fi
+
+mime=$(file -b --mime-type "$file" 2>/dev/null)
+case "$mime" in
+	text/*|application/json|application/x-sh*)
+		# -O ansi uses your terminal's color palette
+		# --force ensures it still prints the file even if the language is unknown
+		highlight -O ansi --force "$file"
+		;;
+	*)
+		printf "File info: %s\n" "$(file -b "$file" 2>/dev/null)"
+		;;
+esac
+exit 0

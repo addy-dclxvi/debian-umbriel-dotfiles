@@ -1,0 +1,160 @@
+[include]
+files = []
+
+[include.optional]
+files = ["noctalia.toml"]
+
+[environment]
+PATH = "/home/user/.local/bin:/bin:/sbin:/usr/bin:/usr/libexec:/usr/local/bin:/usr/local/sbin:/usr/sbin"
+
+EDITOR = "nvim"
+PAGER = "less"
+SHELL = "/usr/bin/fish"
+TERM = "kitty"
+TERMINAL = "kitty"
+
+LANG = "en_US.utf8"
+LC_COLLATE = "C"
+
+LC_ADDRESS = "id_ID.utf8"
+LC_CTYPE = "id_ID.utf8"
+LC_IDENTIFICATION = "id_ID.utf8"
+LC_MEASUREMENT = "id_ID.utf8"
+LC_MESSAGES = "id_ID.utf8"
+LC_MONETARY = "id_ID.utf8"
+LC_NAME = "id_ID.utf8"
+LC_NUMERIC = "id_ID.utf8"
+LC_PAPER = "id_ID.utf8"
+LC_TELEPHONE = "id_ID.utf8"
+LC_TIME = "id_ID.utf8"
+
+[general]
+show_cheatsheet = false
+autostart = ["LC_TIME=en_US.UTF-8 noctalia"]
+
+[appearance.blur]
+radius = 4
+
+[input.keyboard]
+numlock_toggle = true
+
+[input.focus]
+follows_mouse = false
+
+[keybinds]
+"Mod" = "spawn noctalia msg panel-toggle launcher"
+"Mod+Return" = { action = "spawn kitty", repeat = false }
+"Mod+E" = { action = "spawn nautilus --new-window", repeat = false }
+"Mod+W" = { action = "spawn firefox", repeat = false }
+"Mod+C" = { action = "window-close", repeat = false }
+"Alt+F4" = { action = "window-close", repeat = false }
+"Mod+Escape" = "session-quit"
+
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "workspace-next"
+"Mod+Up" = "workspace-previous"
+"Mod+Right" = "window-focus-right"
+
+"Mod+H" = "window-focus-left"
+"Mod+J" = "workspace-next"
+"Mod+K" = "workspace-previous"
+"Mod+L" = "window-focus-right"
+
+"Mod+Shift+Left" = "column-move-left"
+"Mod+Shift+Down" = "column-move-to-workspace-next"
+"Mod+Shift+Up" = "column-move-to-workspace-previous"
+"Mod+Shift+Right" = "column-move-right"
+
+"Mod+Shift+h" = "column-move-left"
+"Mod+Shift+j" = "column-move-to-workspace-next"
+"Mod+Shift+k" = "column-move-to-workspace-previous"
+"Mod+Shift+l" = "column-move-right"
+
+"Alt+Tab" = "window-focus-next"
+"Alt+Shift+Tab" = "window-focus-previous"
+"Mod+Tab" = { action = "overview-toggle", repeat = false }
+
+"F11" = { action = "window-toggle-fullscreen", repeat = false }
+"Mod+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+R" = { action = "window-cycle-primary-extent", repeat = false }
+"Mod+Space" = { action = "window-toggle-floating", repeat = false }
+"Mod+Shift+Space" = { action = "window-focus-switch-floating", repeat = false }
+
+"Mod+1" = "workspace-switch 1"
+"Mod+2" = "workspace-switch 2"
+"Mod+3" = "workspace-switch 3"
+"Mod+4" = "workspace-switch 4"
+"Mod+5" = "workspace-switch 5"
+"Mod+6" = "workspace-switch 6"
+"Mod+7" = "workspace-switch 7"
+"Mod+8" = "workspace-switch 8"
+"Mod+9" = "workspace-switch 9"
+
+"Mod+Shift+1" = "window-move-to-workspace 1"
+"Mod+Shift+2" = "window-move-to-workspace 2"
+"Mod+Shift+3" = "window-move-to-workspace 3"
+"Mod+Shift+4" = "window-move-to-workspace 4"
+"Mod+Shift+5" = "window-move-to-workspace 5"
+"Mod+Shift+6" = "window-move-to-workspace 6"
+"Mod+Shift+7" = "window-move-to-workspace 7"
+"Mod+Shift+8" = "window-move-to-workspace 8"
+"Mod+Shift+9" = "window-move-to-workspace 9"
+
+"XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn noctalia msg volume-down", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"XF86AudioPlay" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"XF86AudioNext" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn noctalia msg brightness-up", allow_when_locked = true }
+"XF86MonBrightnessDown" = { action = "spawn noctalia msg brightness-down", allow_when_locked = true }
+"Print" = "spawn noctalia msg screenshot-fullscreen"
+"Ctrl+Print" = "spawn noctalia msg screenshot-region"
+
+[layout]
+extent_presets = [0.75, 0.5]
+gap = 24
+
+[layout.stacking]
+
+[layout.scrolling]
+default_extent_fraction = 0.75
+
+[[window_rule]]
+blur = true
+default_floating_size = { width = 0.75, height = 0.75 }
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 24, y = 24, anchor = "bottom_right" }
+
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true
+
+[[layer_rule]]
+match.namespace = "^noctalia-(notification|dock|panel|attached-panel|osd)$"
+blur_optimized = false
+
+[hot_corners.top_left]
+enabled = true
+delay_ms = 500
+action = "overview-open"
+
+[appearance]
+border_width = 12
+corner_radius = 12

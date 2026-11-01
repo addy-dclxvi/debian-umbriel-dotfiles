@@ -1,0 +1,97 @@
+## Left Prompt
+function fish_prompt
+	# Set the annoying greeting to empty
+	set fish_greeting
+	set -l last_status $status
+	# Show the current working directory (untruncated with tilde)
+	set_color normal
+	if test (id -u) -eq 0 # Yellow background for root for carefulness
+		set_color --background=yellow
+	else
+		set_color --background=black
+	end
+
+	echo -n ' '
+	set -l full_path (string replace -r "^$HOME" '~' (pwd))
+	echo -n $full_path
+	echo -n ' '
+
+	# Check if there is a Git project in current directory
+	if git rev-parse --is-inside-work-tree >/dev/null 2>&1
+		set -l branch (git branch --show-current 2>/dev/null)
+		if test -n "$branch"
+			set_color --background=brblack
+			set_color black
+			echo -n ' '
+			echo -n "$branch"
+			echo -n ' '
+		end
+	end
+	set_color normal
+	echo -n ' '
+end
+
+## Window title
+function fish_title
+	# Get the full path and replace the home directory path with a tilde
+	set -l full_path (string replace -r "^$HOME" '~' (pwd))
+
+	# Only append the command if argv is set AND not empty
+	if test -n "$argv" -a "$argv" != "fish"
+		echo "fish in" $full_path "($argv)"
+	else
+		echo "fish in" $full_path
+	end
+end
+
+
+## Coloring
+set fish_color_autosuggestion brblack
+set fish_color_command normal
+set fish_color_comment brblack
+set fish_color_cwd blue
+set fish_color_cwd_root red
+set fish_color_end magenta
+set fish_color_error yellow
+set fish_color_escape cyan
+set fish_color_history_current cyan
+set fish_color_host normal
+set fish_color_match blue
+set fish_color_normal normal
+set fish_color_operator cyan
+set fish_color_param blue
+set fish_color_quote green
+set fish_color_redirection blue
+set fish_color_search_match --background=black
+set fish_color_selection blue
+set fish_color_status red
+set fish_color_user red
+set fish_pager_color_completion blue
+set fish_pager_color_description yellow
+set fish_pager_color_prefix cyan
+set fish_pager_color_progress cyan
+
+## Aliases
+alias ls "ls --group-directories-first --color \
+--human-readable --size --sort=name -v"
+alias lsl "ls --group-directories-first --color \
+--human-readable --size --sort=name -l -v"
+alias clone "git clone --depth 1"
+alias merge "xrdb ~/.Xresources"
+alias search "apt-cache search"
+alias install "sudo apt-get install"
+alias update "sudo apt-get update"
+alias upgrade "sudo apt-get upgrade"
+alias remove "sudo apt-get purge --autoremove"
+alias autoremove "sudo apt-get clean && sudo apt-get autoremove"
+alias poweroff "systemctl poweroff"
+alias reboot "systemctl reboot"
+alias local_time "sudo timedatectl set-local-rtc 1"
+alias font_refresh "fc-cache -fv"
+
+## Keybinding
+set fish_key_bindings fish_default_key_bindings
+
+## Make sure the prompt do not appear in the middle
+clear
+
