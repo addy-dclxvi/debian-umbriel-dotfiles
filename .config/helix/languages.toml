@@ -1,0 +1,94 @@
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.shell-lsp]
+command = "shell-lsp"
+
+[language-server.marksman]
+command = "marksman"
+args = ["server"]
+
+[language-server.taplo]
+command = "taplo"
+args = ["lsp", "stdio"]
+
+[[language]]
+name = "python"
+shebangs = ["python", "python3"]
+roots = []
+language-servers = ["ruff"]
+
+[[language]]
+name = "bash"
+file-types = [
+  "sh",
+  "bash",
+  "zsh",
+  ".bash_login",
+  ".bash_logout",
+  ".bash_profile",
+  ".bashrc",
+  ".profile",
+  ".zshenv",
+  ".zlogin",
+  ".zlogout",
+  ".zprofile",
+  ".zshrc",
+  "APKBUILD",
+  "PKGBUILD",
+  "eclass",
+  "ebuild",
+  "bazelrc",
+  ".bash_aliases",
+  { glob = ".yash_profile" },
+  { glob = ".hushlogin" },
+  { glob = "/etc/profile" },
+  { glob = "/etc/bash.bashrc" },
+  { glob = "/etc/bashrc" },
+  { glob = "/etc/environment" },
+  { glob = "/etc/os-release" },
+  { glob = "/usr/lib/os-release" },
+  { glob = "/etc/lsb-release" },
+  { glob = "/etc/mkinitcpio.conf" },
+  { glob = "/etc/makepkg.conf" },
+  { glob = "/etc/default/*" },
+  { glob = "/etc/zsh/*" },
+]
+shebangs = ["sh", "bash", "dash", "zsh", "ksh"]
+roots = []
+language-servers = ["shell-lsp"]
+
+[[language]]
+name = "pkgbuild"
+roots = []
+language-servers = ["shell-lsp"]
+
+[[language]]
+name = "make"
+roots = []
+language-servers = ["shell-lsp"]
+
+[[language]]
+name = "just"
+roots = []
+language-servers = ["shell-lsp"]
+
+[[language]]
+name = "dockerfile"
+roots = []
+language-servers = ["shell-lsp"]
+
+[[language]]
+name = "nix"
+roots = []
+language-servers = ["shell-lsp"]
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman"]
+
+[[language]]
+name = "toml"
+roots = []
+language-servers = ["taplo"]

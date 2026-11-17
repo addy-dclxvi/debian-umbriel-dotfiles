@@ -1,0 +1,42 @@
+theme = "sequence"
+
+[editor]
+bufferline = "multiple"
+color-modes = true
+cursorline = true
+file-picker.hidden = false
+scrolloff = 8
+statusline.center = []
+statusline.left = ["mode", "spinner"]
+statusline.right = ["diagnostics", "file-base-name"]
+statusline.separator = "•"
+trim-trailing-whitespace = false
+whitespace.characters = { tab = ">", tabpad = " " }
+whitespace.render.tab = "all"
+
+[keys.normal]
+"ret" = "goto_word"
+"C-c" = ["keep_primary_selection", "collapse_selection"]
+"C-s" = ":write"
+"C-y" = "redo"
+"C-z" = "undo"
+'\'.c = ":buffer-close"
+'\'.f = ":format"
+'\'.j = ":reflow"
+'\'.q = ":quit"
+'\'.r = ":config-reload"
+'\'.w = ":write"
+'\'.y = "yank_to_clipboard"
+
+[keys.insert]
+"C-backspace" = "delete_word_backward"
+"C-c" = ["normal_mode", "keep_primary_selection", "collapse_selection"]
+"C-s" = ":write"
+"C-y" = "redo"
+"C-z" = "undo"
+
+[keys.select]
+"C-c" = ["normal_mode", "keep_primary_selection", "collapse_selection"]
+'\'.f = ":format"
+'\'.j = ":reflow"
+'\'.y = "yank_to_clipboard"

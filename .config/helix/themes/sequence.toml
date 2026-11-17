@@ -1,0 +1,78 @@
+# sequence theme for helix by addy
+# this theme follows terminal colorscheme
+# NOTE need different color for background, black (0), & gray (8)
+# NOTE need different color for foreground, white (7), & light-gray (15)
+
+# Syntax highlighting
+"comment" = { fg = "light-gray", modifiers = ["italic"] }
+"constant" = "magenta"
+"constructor" = "green"
+"diff.delta" = "light-yellow"
+"diff.minus" = "red"
+"diff.plus" =  "green"
+"function" = "light-yellow"
+"keyword" = "yellow"
+"keyword.control" = "light-yellow"
+"keyword.directive" = "light-yellow"
+"label" = "yellow"
+"markup.bold" = { fg = "yellow", modifiers = ["bold"] }
+"markup.heading" = "yellow"
+"markup.italic" = { fg = "yellow", modifiers = ["italic"] }
+"markup.link.label" = "green"
+"markup.link.text" = "light-yellow"
+"markup.link.url" = "blue"
+"markup.list" = "light-yellow"
+"markup.quote" = "light-yellow"
+"markup.raw.block" = "yellow"
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"namespace" = "blue"
+"operator" = "yellow"
+"punctuation" = "default"
+"string" = "green"
+"string.regexp" = "yellow"
+"string.special" = "light-yellow"
+"tag" = "blue"
+"type" = "blue"
+"type.builtin" = "blue"
+"variable" = "default"
+
+# Interface
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+"diagnostic.error" = { underline = { color = "red", style="curl"} }
+"diagnostic.hint" = { underline = { color = "blue", style="curl"} }
+"diagnostic.info" = { underline = { color = "blue", style="curl"} }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.warning" = { underline = { color = "light-yellow", style="curl"} }
+"error" = { fg = "red", modifiers = ["bold"] }
+"hint" = { fg = "blue", modifiers = ["bold"] }
+"info" = { fg = "blue", modifiers = ["bold"] }
+"special" = "yellow"
+"ui.background" = { bg = "default" }
+"ui.bufferline" = { fg = "light-gray", bg = "default" }
+"ui.bufferline.active" = { fg = "default", bg = "gray" }
+"ui.cursor" = { fg = "gray", bg = "light-yellow" }
+"ui.cursor.match" = "yellow"
+"ui.cursor.primary" = { fg = "gray", bg = "yellow" }
+"ui.cursorline" = { bg = "black" }
+"ui.debug" = { fg = "yellow", bg = "default" }
+"ui.help" = { fg = "white", bg = "black" }
+"ui.highlight.frameline" = { bg = "blue" }
+"ui.linenr" = "gray"
+"ui.linenr.selected" = "light-gray"
+"ui.menu" = { fg = "default", bg = "black" }
+"ui.menu.selected" = { bg = "light-gray", fg = "black" }
+"ui.popup" = { fg = "white", bg = "black" }
+"ui.selection" = { bg = "gray" }
+"ui.statusline" = { fg = "default", bg = "default" }
+"ui.statusline.insert" = { fg = "black", bg = "blue" }
+"ui.statusline.normal" = { fg = "black", bg = "red" }
+"ui.statusline.select" = { fg = "black", bg = "yellow" }
+"ui.text" = "default"
+"ui.text.focus" = { bg = "gray", fg = "default" }
+"ui.text.info" = "default"
+"ui.virtual.inlay-hint" = { fg = "light-yellow", bg = "black" }
+"ui.virtual.jump-label" = { fg = "red", modifiers = ["italic", "bold"] }
+"ui.virtual.ruler" = { bg = "black" }
+"ui.virtual.whitespace" = "gray"
+"ui.window" = "gray"
+"warning" = "light-yellow"

@@ -1,3 +1,4 @@
+pcall(vim.cmd, 'colorscheme sequence')
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
@@ -32,7 +33,7 @@ miniclue.setup({
 		miniclue.gen_clues.marks(), miniclue.gen_clues.registers(),
 		miniclue.gen_clues.windows(), miniclue.gen_clues.z(),
 	},
-	window = { delay = 200}
+	window = { delay = 200, config = { border = 'single' } }
 })
 
 local hipatterns = require('mini.hipatterns')
@@ -55,15 +56,6 @@ require('mini.completion').setup({
 		local keys = (word:match("/") or word:match("%.%.?")) and "<C-x><C-f>" or "<C-x><C-n>"
 		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, true, true), "n", true)
 	end
-})
-
-pcall(vim.cmd, 'colorscheme miniwinter')
-vim.opt.background = 'light'
-require('mini.colors').setup()
-require('mini.hues').setup({
-	background = '#faf4ed',
-	foreground = '#575279',
-	saturation = 'high'
 })
 
 require('mini.statusline').setup({
@@ -126,9 +118,11 @@ require('mini.visits').setup()
 
 -- require('mini.animate').setup()
 -- require('mini.base16').setup()
+-- require('mini.colors').setup()
 -- require('mini.diff').setup()
 -- require('mini.doc').setup()
 -- require('mini.git').setup()
+-- require('mini.hues').setup()
 -- require('mini.keymap').setup()
 -- require('mini.snippets').setup()
 -- require('mini.test').setup()

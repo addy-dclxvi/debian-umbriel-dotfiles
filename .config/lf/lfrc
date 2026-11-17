@@ -1,109 +1,49 @@
-# Basic configurations
-set anchorfind false
-set autoquit false
-set cleaner lf-cleaner
-set cursorpreviewfmt "\033[7m"
-set dircounts false
-set dirfirst true
-set drawbox true
-set errorfmt ""
-set filesep "\n"
+set cursorpreviewfmt ""
+set drawbox false
+set errorfmt "\033[40;31m %s \033[0m"
 set findlen 0
-set globsearch false
 set hidden true
-set hiddenfiles ".*"
-set history true
 set icons false
-set ifs ""
-set ignorecase true
-set ignoredia false
-set incsearch false
 set info size:time
-set period 0
-set previewer lf-scope
-set ratios 1:2:3
-set reverse false
-set roundbox false
+set previewer scope
 set scrolloff 8
 set shell sh
-set shellopts ""
 set smartcase true
-set sortby natural
-set tabstop 4
-set timefmt "• 2 Jan 2006 at 15:04"
+set statfmt "\033[44;30m %u \033[0m|\033[40;37m %p \033[0m| • %t|"
+set timefmt "Monday 2 January 2006 at 15:04"
 set truncatechar "•"
-set waitmsg "Press any key to continue"
-set wrapscroll false
 
-# Custom commands placed in ~/.local/bin/
-cmd help $lf-help
-cmd extract $lf-extract "$f"
+cmd bulk-rename $rename "$fx"
+cmd chmod-x $printf '%s\n' "$fx" | xargs -d '\n' chmod -x --; lf -remote "send $id unselect"; lf -remote "send $id reload"
+cmd chmodx $printf '%s\n' "$fx" | xargs -d '\n' chmod +x --; lf -remote "send $id unselect"; lf -remote "send $id reload"
+cmd extract $extract "$f"
 cmd mkdir $mkdir -p -- "$*"
-cmd open $lf-riffle "$f"
+cmd mounted-removeable-disk $target="/media/$USER"; [ -d "$target" ] || target="/media"; lf -remote "send $id cd \"$target\""
+cmd open $riffle "$f"
 cmd open-with $eval "$* \"\$f\""
 cmd touch $touch -- "$*"
-cmd trash $lf-trash "$f"
-cmd reload-config $lf -remote "send $id source ~/.config/lf/lfrc" ; lf -remote "send $id reload"
+cmd yank-path $printf '%s' "$f" | { [ -n "$WAYLAND_DISPLAY" ] && wl-copy >/dev/null 2>&1 || xclip -selection clipboard >/dev/null 2>&1; }
 
-# Navigation
-map <backspace2> updir
-map <backspace> updir
-map <c-h> updir
 map <enter> open
 map <c-m> open
-map l open
+map <backspace> updir
+map <backspace2> updir
+map <c-h> updir
+map o push :open-with<space>
 
-# Commands mapping
-map <delete> trash
-map <del> trash
-map D trash
-map x extract
-
-# Prompts
-map a push :mkdir<space>
-map A push :touch<space>
-map r push :open-with<space>
-
-# UI & Reloading
-map <f-5> reload-config
-map R reload
-map c clear
-map <space> toggle
-map v invert
-
-# Standard Keys
-map ` !true
-map " mark-remove
-map ' mark-load
-map , find-prev
-map / search
-map ; find-next
-map <f-2> rename
-map B $lf-rename
-map F find-back
-map G bottom
-map N search-prev
-map dd cut
-map e $nvim "$f"
-map f find
-map gc cd ~/.config
-map gg top
-map gt cd ~/.local/share/Trash/files
-map h updir
+map e $hx "$f"
 map i $less "$f"
-map j down
-map k up
-map m mark-save
-map n search-next
-map p paste
-map q quit
-map y yank
-map za set sortby access
-map zc set sortby ctime
-map zh set hidden!
-map zn set sortby natural
-map zr set reverse!
-map zs set sortby size
-map zt set sortby time
-map zx set sortby ext
-map <f-3> help
+
+map <delete> delete
+map <del> delete
+
+map gE chmod-x
+map gb bulk-rename
+map gc cd ~/.config
+map gd mounted-removeable-disk
+map ge chmodx
+map gh cd ~
+map gm push :mkdir<space>
+map gt push :touch<space>
+map gx extract
+map gy yank-path

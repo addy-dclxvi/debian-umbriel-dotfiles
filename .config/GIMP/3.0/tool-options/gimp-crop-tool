@@ -1,9 +1,11 @@
 # GIMP gimp-crop-tool options
 
+(aspect-denominator 1080)
+(aspect-numerator 1920)
 (foreground
-    (color "R'G'B'A double" 32 "\0\0\0\300\137\137\357\77\0\0\0\0\237\236\356\77\0\0\0\300\301\275\355\77\0\0\0\0\0\0\360\77" 0))
+    (color "R'G'B'A double" 32 "\0\0\0\40\1\374\353\77\0\0\0\40\1\374\353\77\0\0\0\40\1\374\353\77\0\0\0\0\0\0\360\77" 0))
 (background
     (color "R'G'B'A u8" 4 "\362\351\341\377" 0))
-(pattern "Pine")
+(pattern "Starfield")
 
 # end of gimp-crop-tool options

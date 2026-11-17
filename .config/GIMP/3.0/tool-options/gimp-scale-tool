@@ -2,5 +2,6 @@
 
 (background
     (color "R'G'B'A u8" 4 "\362\351\341\377" 0))
+(interpolation linear)
 
 # end of gimp-scale-tool options

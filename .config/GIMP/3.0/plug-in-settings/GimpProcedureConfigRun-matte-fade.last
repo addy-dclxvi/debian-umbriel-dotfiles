@@ -1,0 +1,14 @@
+# settings
+
+(useColor yes)
+(colorScheme "Violet/Yellow")
+(orientation "vertical")
+(flipColors no)
+(colorOpacity 25)
+(colorOffset 20)
+(overExposure yes)
+(oeAmount 20)
+(addVignette yes)
+(addSharpen yes)
+
+# end of settings

@@ -37,13 +37,12 @@ function fish_title
 	set -l full_path (string replace -r "^$HOME" '~' (pwd))
 
 	# Only append the command if argv is set AND not empty
-	if test -n "$argv" -a "$argv" != "fish"
+	if test -n "$argv" -a "$argv" != fish
 		echo "fish in" $full_path "($argv)"
 	else
 		echo "fish in" $full_path
 	end
 end
-
 
 ## Coloring
 set fish_color_autosuggestion brblack
@@ -73,9 +72,9 @@ set fish_pager_color_progress cyan
 
 ## Aliases
 alias ls "ls --group-directories-first --color \
---human-readable --size --sort=name -v"
+	--human-readable --size --sort=name -v"
 alias lsl "ls --group-directories-first --color \
---human-readable --size --sort=name -l -v"
+	--human-readable --size --sort=name -l -v"
 alias clone "git clone --depth 1"
 alias merge "xrdb ~/.Xresources"
 alias search "apt-cache search"
@@ -94,4 +93,3 @@ set fish_key_bindings fish_default_key_bindings
 
 ## Make sure the prompt do not appear in the middle
 clear
-

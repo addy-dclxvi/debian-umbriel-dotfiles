@@ -1,0 +1,94 @@
+#!/bin/sh
+# right column file previewer for lf file manager
+# need chafa package
+
+FILE="$1"
+WIDTH="$2"
+HEIGHT="$3"
+
+[ -f "$FILE" ] || exit 0
+
+preview_plain() {
+	head -n 64 -- "$FILE" 2>/dev/null | tr -d '\000\033'
+}
+
+preview_code() {
+	if command -v highlight >/dev/null 2>&1; then
+		preview_plain | timeout 0.2s highlight --out-format=ansi --style=pablo \
+			--replace-tabs=8 --syntax="$1" 2>/dev/null || preview_plain
+	else
+		preview_plain
+	fi
+}
+
+preview_image() {
+	timeout 0.5s chafa -f symbols -s "${WIDTH}x${HEIGHT}" --animate=off \
+		--polite=on --work 1 --colors 256 --bg white --fg black -- "$FILE" </dev/null 2>/dev/null
+}
+
+case "$FILE" in
+*.png|*.jpg|*.jpeg|*.gif|*.webp|*.bmp|*.PNG|*.JPG|*.JPEG)
+	preview_image
+	exit 0
+	;;
+*.txt|*.md|*.cfg|*.conf|*.ini|*gitconfig|*.log|*.csv)
+	preview_plain
+	exit 0
+	;;
+*.sh|*.bash|*.zsh)
+	preview_code sh
+	exit 0
+	;;
+*.lua)
+	preview_code lua
+	exit 0
+	;;
+*.py)
+	preview_code py
+	exit 0
+	;;
+*.json)
+	preview_code json
+	exit 0
+	;;
+*.xml|*.html)
+	preview_code xml
+	exit 0
+	;;
+*.yaml|*.yml)
+	preview_code yaml
+	exit 0
+	;;
+*.toml)
+	preview_code toml
+	exit 0
+	;;
+*.js|*.ts)
+	preview_code js
+	exit 0
+	;;
+*.c|*.h)
+	preview_code c
+	exit 0
+	;;
+*.go)
+	preview_code go
+	exit 0
+	;;
+*.rs)
+	preview_code rust
+	exit 0
+	;;
+esac
+
+case "$(file --dereference --brief --mime-type -- "$FILE" 2>/dev/null)" in
+image/*)
+	preview_image
+	;;
+text/*|*/xml|application/json|application/javascript|application/x-sh*|application/toml)
+	preview_plain
+	;;
+*)
+	file --dereference --brief -- "$FILE" 2>/dev/null
+	;;
+esac

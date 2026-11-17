@@ -1,67 +1,39 @@
 config_version = 16
 
 [bar.default]
-capsule = true
 concave_edge_corners = false
-end = [ "tray", "network", "bluetooth", "volume", "battery", "clipboard", "session" ]
+end = [ "tray", "clipboard", "bluetooth", "volume", "network", "battery", "session" ]
 font_family = "Poppins"
+font_scale = 0.80000000000000004
 margin_ends = 0
-padding = 12
 radius = 0
-start = [ "launcher", "workspaces", "active_window" ]
-thickness = 32
-widget_spacing = 12
+shadow = false
+start = [ "workspaces", "active_window" ]
+thickness = 28
+widget_spacing = 16
 
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@VGA-1", "lockscreen-login-box@LVDS-1" ]
+widget_order = [ "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@LVDS-1"]
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
     cx = 683.0
     cy = 586.0
-    output = "LVDS-1"
+    output = "eDP-1"
     placement_height = 768.0
     placement_width = 1366.0
     rotation = 0.0
     type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@LVDS-1".settings]
-        background_color = "surface_container"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_password_reveal = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
-
-    [lockscreen_widgets.widget."lockscreen-login-box@VGA-1"]
-    box_height = 196.0
-    box_width = 810.0
-    cx = 683.0
-    cy = 586.0
-    output = "VGA-1"
-    placement_height = 768.0
-    placement_width = 1366.0
-    rotation = 0.0
-    type = "login_box"
-
-        [lockscreen_widgets.widget."lockscreen-login-box@VGA-1".settings]
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
         background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
@@ -87,34 +59,43 @@ settings_show_advanced = false
 
 [theme]
 builtin = "Rosé Pine"
-community_palette = "Rose Pine Moon"
+community_palette = "Ayu Red"
 mode = "light"
-source = "builtin"
-wallpaper_scheme = "dysfunctional"
+source = "wallpaper"
+wallpaper_scheme = "muted"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "kitty", "umbriel" ]
-    community_ids = [ "gimp" ]
+    builtin_ids = [ "gtk3", "gtk4", "umbriel" ]
 
 [wallpaper]
 directory = "/home/user/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/user/Pictures/Wallpapers/surabaya-white.jpeg"
+    path = "/home/user/Pictures/Wallpapers/florencia-viadana-G6S5IXQTC_A-unsplash-cold.jpg"
 
     [wallpaper.last]
-    path = "/home/user/Pictures/Wallpapers/surabaya-white.jpeg"
+    path = "/home/user/Pictures/Wallpapers/florencia-viadana-G6S5IXQTC_A-unsplash-cold.jpg"
 
-    [wallpaper.monitors.LVDS-1]
-    path = "/home/user/Pictures/Wallpapers/surabaya-white.jpeg"
-
-    [wallpaper.monitors.VGA-1]
-    path = "/home/user/Pictures/Wallpapers/surabaya-white.jpeg"
+    [wallpaper.monitors.eDP-1]
+    path = "/home/user/Pictures/Wallpapers/andy-howells-1PmGSn9i7FI-unsplash-sequence-light.jpg"
 
 [widget.active_window]
 display = "text_only"
 max_length = 240
 min_length = 0
 
+[widget.battery]
+show_label = false
+
 [widget.clock]
 format = "{:%A %e %B at %H:%M}"
+
+[widget.network]
+show_label = false
+
+[widget.volume]
+show_label = false
+
+[widget.workspaces]
+pill_scale = 0.5
+show_labels = false

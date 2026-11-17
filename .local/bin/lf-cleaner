@@ -1,2 +1,0 @@
-#!/bin/sh
-kitty +kitten icat --clear --silent < /dev/null > /dev/tty 2>/dev/null

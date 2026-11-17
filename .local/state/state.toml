@@ -31,5 +31,8 @@ width_text = "24"
 calendar_credentials_v1 = true
 
 [theme_templates]
-applied_builtin_ids = "gtk3 gtk4 kitty umbriel"
-applied_community_ids = "gimp"
+applied_builtin_ids = "gtk3 gtk4 umbriel"
+applied_community_ids = ""
+
+[wallpaper_panel]
+flatten = true

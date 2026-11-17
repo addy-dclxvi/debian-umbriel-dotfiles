@@ -1,49 +1,59 @@
-[include]
-files = []
-
 [include.optional]
 files = ["noctalia.toml"]
 
 [environment]
-PATH = "/home/user/.local/bin:/bin:/sbin:/usr/bin:/usr/libexec:/usr/local/bin:/usr/local/sbin:/usr/sbin"
+EDITOR = "hx"
+SHELL = "fish"
+TERMINAL = "alacritty"
 
-EDITOR = "nvim"
-PAGER = "less"
-SHELL = "/usr/bin/fish"
-TERM = "kitty"
-TERMINAL = "kitty"
+LC_ALL = ""
+LC_COLLATE = "C"
 
 LANG = "en_US.utf8"
-LC_COLLATE = "C"
+LC_MESSAGES = "en_US.utf8"
+LC_TIME = "en_US.utf8"
 
 LC_ADDRESS = "id_ID.utf8"
 LC_CTYPE = "id_ID.utf8"
 LC_IDENTIFICATION = "id_ID.utf8"
 LC_MEASUREMENT = "id_ID.utf8"
-LC_MESSAGES = "id_ID.utf8"
 LC_MONETARY = "id_ID.utf8"
 LC_NAME = "id_ID.utf8"
 LC_NUMERIC = "id_ID.utf8"
 LC_PAPER = "id_ID.utf8"
 LC_TELEPHONE = "id_ID.utf8"
-LC_TIME = "id_ID.utf8"
 
 [general]
 show_cheatsheet = false
-autostart = ["LC_TIME=en_US.UTF-8 noctalia"]
+autostart = ["noctalia"]
 
-[appearance.blur]
-radius = 4
+[appearance]
+blur.radius = 4
+border_width = 8
+corner_radius = 0
+shadow = { enabled = false, softness = 8, offset_x = 0, offset_y = 0 }
 
-[input.keyboard]
-numlock_toggle = true
+[colors]
+shadow = "#00000080"
 
-[input.focus]
-follows_mouse = false
+[input]
+focus.follows_mouse = false
+keyboard.numlock_toggle = false
+touchpad.natural_scroll = true
+
+[hot_corners.top_left]
+enabled = true
+delay_ms = 200
+action = "overview-open"
+
+[layout]
+extent_presets = [0.75, 0.5]
+gap = 16
+scrolling.default_extent_fraction = 0.75
 
 [keybinds]
-"Mod" = "spawn noctalia msg panel-toggle launcher"
-"Mod+Return" = { action = "spawn kitty", repeat = false }
+"Mod+Return" = { action = "spawn alacritty", repeat = false }
+"Mod+A" = "spawn noctalia msg panel-toggle launcher"
 "Mod+E" = { action = "spawn nautilus --new-window", repeat = false }
 "Mod+W" = { action = "spawn firefox", repeat = false }
 "Mod+C" = { action = "window-close", repeat = false }
@@ -54,17 +64,18 @@ follows_mouse = false
 "Mod+Down" = "workspace-next"
 "Mod+Up" = "workspace-previous"
 "Mod+Right" = "window-focus-right"
-
 "Mod+H" = "window-focus-left"
 "Mod+J" = "workspace-next"
 "Mod+K" = "workspace-previous"
 "Mod+L" = "window-focus-right"
 
+"Mod+WheelDown" = "layout-scroll-right"
+"Mod+WheelUp" = "layout-scroll-left"
+
 "Mod+Shift+Left" = "column-move-left"
 "Mod+Shift+Down" = "column-move-to-workspace-next"
 "Mod+Shift+Up" = "column-move-to-workspace-previous"
 "Mod+Shift+Right" = "column-move-right"
-
 "Mod+Shift+h" = "column-move-left"
 "Mod+Shift+j" = "column-move-to-workspace-next"
 "Mod+Shift+k" = "column-move-to-workspace-previous"
@@ -77,6 +88,8 @@ follows_mouse = false
 "F11" = { action = "window-toggle-fullscreen", repeat = false }
 "Mod+F" = { action = "window-toggle-maximize", repeat = false }
 "Mod+R" = { action = "window-cycle-primary-extent", repeat = false }
+"Mod+G" = { action = "window-toggle-maximize-to-edges", repeat = false }
+"Mod+X" = { action = "column-center", repeat = false }
 "Mod+Space" = { action = "window-toggle-floating", repeat = false }
 "Mod+Shift+Space" = { action = "window-focus-switch-floating", repeat = false }
 
@@ -111,21 +124,17 @@ follows_mouse = false
 "Print" = "spawn noctalia msg screenshot-fullscreen"
 "Ctrl+Print" = "spawn noctalia msg screenshot-region"
 
-[layout]
-extent_presets = [0.75, 0.5]
-gap = 24
-
-[layout.stacking]
-
-[layout.scrolling]
-default_extent_fraction = 0.75
-
 [[window_rule]]
+default_maximize = true
 blur = true
-default_floating_size = { width = 0.75, height = 0.75 }
+default_floating_size = { width = 0.5, height = 0.5 }
 
 [[window_rule]]
-match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+match.app_id = "^(Alacritty|org\\.gnome\\.(Nautilus|FileRoller|eog)|eog)$"
+default_maximize = false
+
+[[window_rule]]
+match.app_id = "^dev\\.noctalia\\.UmbrielSharePicker$"
 default_floating = true
 
 [[window_rule]]
@@ -149,12 +158,3 @@ blur_popups = true
 [[layer_rule]]
 match.namespace = "^noctalia-(notification|dock|panel|attached-panel|osd)$"
 blur_optimized = false
-
-[hot_corners.top_left]
-enabled = true
-delay_ms = 500
-action = "overview-open"
-
-[appearance]
-border_width = 12
-corner_radius = 12
