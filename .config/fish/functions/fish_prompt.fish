@@ -1,47 +1,47 @@
 ## Left Prompt
 function fish_prompt
-	# Set the annoying greeting to empty
-	set fish_greeting
-	set -l last_status $status
-	# Show the current working directory (untruncated with tilde)
-	set_color normal
-	if test (id -u) -eq 0 # Yellow background for root for carefulness
-		set_color --background=yellow
-	else
-		set_color --background=black
-	end
+    # Set the annoying greeting to empty
+    set fish_greeting
+    set -l last_status $status
+    # Show the current working directory (untruncated with tilde)
+    set_color normal
+    if test (id -u) -eq 0 # Yellow background for root for carefulness
+        set_color --background=yellow
+    else
+        set_color --background=black
+    end
 
-	echo -n ' '
-	set -l full_path (string replace -r "^$HOME" '~' (pwd))
-	echo -n $full_path
-	echo -n ' '
+    echo -n ' '
+    set -l full_path (string replace -r "^$HOME" '~' (pwd))
+    echo -n $full_path
+    echo -n ' '
 
-	# Check if there is a Git project in current directory
-	if git rev-parse --is-inside-work-tree >/dev/null 2>&1
-		set -l branch (git branch --show-current 2>/dev/null)
-		if test -n "$branch"
-			set_color --background=brblack
-			set_color black
-			echo -n ' '
-			echo -n "$branch"
-			echo -n ' '
-		end
-	end
-	set_color normal
-	echo -n ' '
+    # Check if there is a Git project in current directory
+    if git rev-parse --is-inside-work-tree >/dev/null 2>&1
+        set -l branch (git branch --show-current 2>/dev/null)
+        if test -n "$branch"
+            set_color --background=brblack
+            set_color white
+            echo -n ' '
+            echo -n "$branch"
+            echo -n ' '
+        end
+    end
+    set_color normal
+    echo -n ' '
 end
 
 ## Window title
 function fish_title
-	# Get the full path and replace the home directory path with a tilde
-	set -l full_path (string replace -r "^$HOME" '~' (pwd))
+    # Get the full path and replace the home directory path with a tilde
+    set -l full_path (string replace -r "^$HOME" '~' (pwd))
 
-	# Only append the command if argv is set AND not empty
-	if test -n "$argv" -a "$argv" != fish
-		echo "fish in" $full_path "($argv)"
-	else
-		echo "fish in" $full_path
-	end
+    # Only append the command if argv is set AND not empty
+    if test -n "$argv" -a "$argv" != fish
+        echo "fish in" $full_path "($argv)"
+    else
+        echo "fish in" $full_path
+    end
 end
 
 ## Coloring
