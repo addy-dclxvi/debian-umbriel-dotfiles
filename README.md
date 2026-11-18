@@ -156,13 +156,12 @@ git clone https://github.com/addy-dclxvi/debian-umbriel-dotfiles.git
 cd debian-umbriel-dotfiles
 ```
 
-Copy the config folders and local scripts into place (make sure to back up any existing files you want to keep first):
+Copy the configs into place (make sure to back up any existing files you want to keep first):
 
 ```bash
-mkdir -p ~/.config ~/.local/bin
-cp -r .config/* ~/.config/
-cp -r .local/bin/* ~/.local/bin/
+cp -r . ~
 chmod +x ~/.local/bin/*
+rm -rf ~/.git ~/README.md ~/LICENSE
 ```
 
 ## ⚙️ A Note on My Config Files
