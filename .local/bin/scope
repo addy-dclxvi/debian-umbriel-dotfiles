@@ -1,6 +1,6 @@
 #!/bin/sh
 # right column file previewer for lf file manager
-# need chafa package
+# need chafa, file, less, and highlight package
 
 FILE="$1"
 WIDTH="$2"

@@ -1,4 +1,5 @@
 [general]
+import = ["~/.config/alacritty/themes/calido.toml"]
 live_config_reload = true
 
 [window]
@@ -23,34 +24,3 @@ style = "Italic"
 [font.bold_italic]
 family = "CommitMono"
 style = "Bold Italic"
-
-[colors]
-draw_bold_text_with_bright_colors = true
-
-[colors.primary]
-background = "#fbf8fc"
-foreground = "#6c637d"
-
-[colors.cursor]
-text = "#fbf8fc"
-cursor = "#e887a5"
-
-[colors.normal]
-black = "#f2ecf5"
-red = "#e87d95"
-green = "#6fb596"
-yellow = "#de8550"
-blue = "#7da3e0"
-magenta = "#be8ad6"
-cyan = "#67b3c4"
-white = "#988fa6"
-
-[colors.bright]
-black = "#e5dceb"
-red = "#d66780"
-green = "#5aa182"
-yellow = "#cc723d"
-blue = "#678ecc"
-magenta = "#aa75c2"
-cyan = "#529fb0"
-white = "#786f87"

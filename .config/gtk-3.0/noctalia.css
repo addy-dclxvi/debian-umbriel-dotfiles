@@ -7,9 +7,9 @@
 /* App-scoped CSS of enabled community GTK extensions; Noctalia maintains this file. */
 @import url("noctalia-extensions.css");
 
-@define-color accent_color #536271;
-@define-color accent_bg_color #536271;
-@define-color accent_fg_color #fafafa;
+@define-color accent_color #6c7779;
+@define-color accent_bg_color #6c7779;
+@define-color accent_fg_color #fdfcfc;
 
 @define-color destructive_bg_color #fd4663;
 @define-color destructive_fg_color #252525;
@@ -17,34 +17,34 @@
 @define-color error_bg_color #fd4663;
 @define-color error_fg_color #252525;
 
-@define-color window_bg_color #e3e6e8;
+@define-color window_bg_color #e4e6e7;
 @define-color window_fg_color #191a1a;
 
-@define-color view_bg_color #e3e6e8;
+@define-color view_bg_color #e4e6e7;
 @define-color view_fg_color #191a1a;
 
-@define-color headerbar_bg_color #d8dbde;
+@define-color headerbar_bg_color #d9dddd;
 @define-color headerbar_fg_color #191a1a;
 @define-color headerbar_backdrop_color @window_bg_color;
 
-@define-color popover_bg_color #d8dbde;
+@define-color popover_bg_color #d9dddd;
 @define-color popover_fg_color #191a1a;
 
-@define-color card_bg_color #d8dbde;
+@define-color card_bg_color #d9dddd;
 @define-color card_fg_color #191a1a;
 
-@define-color dialog_bg_color #e3e6e8;
+@define-color dialog_bg_color #e4e6e7;
 @define-color dialog_fg_color #191a1a;
 
-@define-color overview_bg_color #d8dbde;
+@define-color overview_bg_color #d9dddd;
 @define-color overview_fg_color #191a1a;
 
-@define-color sidebar_bg_color #d8dbde;
+@define-color sidebar_bg_color #d9dddd;
 @define-color sidebar_fg_color #191a1a;
 @define-color sidebar_backdrop_color @window_bg_color;
 @define-color sidebar_border_color @window_bg_color;
 
-@define-color secondary_sidebar_bg_color #e3e6e8;
+@define-color secondary_sidebar_bg_color #e4e6e7;
 @define-color secondary_sidebar_fg_color #191a1a;
 
 /* Focused selection states */

@@ -1,0 +1,55 @@
+config_version = 16
+
+[bar.default]
+concave_edge_corners = false
+end = [ "tray", "clipboard", "bluetooth", "volume", "network", "battery", "launcher", "session" ]
+font_family = "Poppins"
+font_scale = 0.8
+margin_ends = 0
+radius = 0
+shadow = false
+start = [ "workspaces", "active_window" ]
+thickness = 28
+widget_spacing = 16
+
+[shell]
+polkit_agent = true
+settings_show_advanced = false
+
+    [shell.launcher]
+    default_view = "all"
+
+[theme]
+mode = "light"
+source = "wallpaper"
+wallpaper_scheme = "muted"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "umbriel" ]
+
+[wallpaper]
+directory = "~/Pictures/Wallpapers"
+
+    [wallpaper.default]
+    path = "~/Pictures/Wallpapers/florencia-viadana-G6S5IXQTC_A-unsplash-edit.jpg"
+
+[widget.active_window]
+display = "text_only"
+max_length = 240
+min_length = 0
+
+[widget.battery]
+show_label = false
+
+[widget.clock]
+format = "{:%A %e %B at %H:%M}"
+
+[widget.network]
+show_label = false
+
+[widget.volume]
+show_label = false
+
+[widget.workspaces]
+pill_scale = 0.5
+show_labels = false

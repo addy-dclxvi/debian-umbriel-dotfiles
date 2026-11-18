@@ -61,6 +61,9 @@
     (padding-in-show-all no))
 (toolbox-foo-area yes)
 (theme-color-scheme light)
+(override-theme-icon-size yes)
+(custom-icon-size small)
+(show-welcome-dialog no)
 (fill-options
     (style fg-color)
     (custom-style solid-color)
