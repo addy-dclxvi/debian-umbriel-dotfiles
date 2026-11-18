@@ -179,7 +179,7 @@ My config enables Noctalia's built-in Polkit agent (`polkit_agent = true` inside
 In `umbriel/config.toml`, most apps open maximized (100% width) by default, while `Alacritty`, `Nautilus`, `File Roller`, and `EOG` are set to open centered at 75% width.
 
 **4. Future Additions:**
-Right now, my fonts, padding, and window gaps are a bit larger than I want, so I will be shrinking them down later. I also haven't installed an office suite or printing support yet, which I plan to add in the future.
+I haven't installed an office suite or printing support yet, which I plan to add in the future.
 
 ## ⌨️ Keybindings
 
