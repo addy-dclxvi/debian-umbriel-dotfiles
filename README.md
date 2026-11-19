@@ -39,7 +39,7 @@ On a traditional X11 window manager setup, you usually have to build a usable de
 * Frontends for NetworkManager, power management, volume, and screen brightness
 * A built-in Polkit authentication agent (for password prompts)
 
-Even with all of those features packed in, it still runs super fast and lightweight because it's built in native Rust (not the heavier Qt Quickshell version).
+Even with all of those features packed in, it still runs super fast and lightweight because it's built in C++ (not the heavier Qt Quickshell version).
 
 ### Current Rough Edges on Wayland
 While I'm very happy with this daily setup, I still run into a few Wayland quirks here and there:
